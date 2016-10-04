@@ -1,8 +1,6 @@
-from setuptools import setup, find_packages
-import sys
 from __future__ import print_function
-DOCLINES = __doc__.split("\n")
 
+import sys
 import os
 import sys
 import glob
@@ -11,6 +9,7 @@ import shutil
 import textwrap
 import tempfile
 import subprocess
+from setuptools import setup, find_packages
 from distutils.ccompiler import new_compiler
 from distutils.spawn import find_executable
 import numpy as np
@@ -49,6 +48,7 @@ Operating System :: Unix
 Programming Language :: Python :: 2.7
 Programming Language :: Python :: 3.5
 """
+
 def hasfunction(cc, funcname, include=None, extra_postargs=None):
     # From http://stackoverflow.com/questions/
     #            7018879/disabling-output-when-compiling-with-distutils
