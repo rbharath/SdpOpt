@@ -171,7 +171,6 @@ def main():
         description='A first order library for SDP solution',
         packages=find_packages(),
         cmdclass={'build_ext': custom_build_ext})
-    )
 
 if __name__ == '__main__':
     main()
