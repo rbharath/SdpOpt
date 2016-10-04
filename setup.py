@@ -49,6 +49,21 @@ Programming Language :: Python :: 2.7
 Programming Language :: Python :: 3.5
 """
 
+def get_lapack():
+    from collections import defaultdict
+    lapack_info = defaultdict(lambda: [])
+    lapack_info.update(system_info.get_info('lapack'))
+    if len(lapack_info) == 0:
+        try:
+            from scipy.linalg import _flapack
+            lapack_info['extra_link_args'] = [_flapack.__file__]
+            return lapack_info
+        except ImportError:
+            pass
+        print('LAPACK libraries could not be located.', file=sys.stderr)
+        sys.exit(1)
+    return lapack_info
+
 def hasfunction(cc, funcname, include=None, extra_postargs=None):
     # From http://stackoverflow.com/questions/
     #            7018879/disabling-output-when-compiling-with-distutils
