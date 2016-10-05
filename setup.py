@@ -185,6 +185,7 @@ def main():
         url='https://github.com/rbharath/sdpopt',
         description='A first order library for SDP solution',
         packages=find_packages(),
+        ext_modules=extensions,
         cmdclass={'build_ext': custom_build_ext})
 
 if __name__ == '__main__':
